@@ -2,7 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from './button';
 
-export const Navigation = () => {
+interface NavigationProps {
+    // onClick: ()=>void
+    resetScore?: ()=>void
+    sortData?: any
+}
+
+export const Navigation: React.FC<NavigationProps> = ( { resetScore, sortData }) => {
     return (
         <nav className='flex justify-between items-center h-[50px] px-5 shadow-md bg-gray-100 text-black'>
             <Link to='/'>
@@ -27,12 +33,14 @@ export const Navigation = () => {
                 <img 
                 src="./images/list.svg" 
                 alt="сортировка" 
+                onClick={sortData}
                 />
             </Button>
             <Button>
                 <img 
                 src="./images/refresh.svg" 
                 alt="сброс" 
+                onClick={resetScore}
                 />
             </Button>
         </nav>

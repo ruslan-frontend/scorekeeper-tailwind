@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import { PlayerString } from '../components/player-string';
+import { IPlayer } from '../interfaces/interface';
 
-export const Players = () => {
+interface PlayerProps {
+    item?: IPlayer
+    data: IPlayer[]
+    setData?: any
+}
 
-    const [data, setData] = useState([{id: 1, name: 'Руслан', score: 27}, {id: 1, name: 'Чулпан', score: 22}, {id: 1, name: 'Никита', score: 17}, {id: 1, name: 'Аделина', score: 12}])
+export const Players: React.FC<PlayerProps> = ( { item, data, setData } ) => {
 
     return (
         <>
